@@ -20,7 +20,7 @@ export default function Faqs() {
             How does the booking process work?
           </AccordionTrigger>
           <AccordionContent>
-            Booking equipment on FarmEquipRental is easy! Simply browse through
+            Booking equipment on farmGearX is easy! Simply browse through
             the available listings, select the equipment you need, choose your
             desired rental dates, and submit a booking request. The equipment
             owner will review your request and confirm the booking. Once
@@ -67,7 +67,7 @@ export default function Faqs() {
         </AccordionItem>
         <AccordionItem value="item-5">
           <AccordionTrigger>
-            How can I contact the equipment owne
+            How can I contact the equipment owner?
           </AccordionTrigger>
           <AccordionContent>
             Communication with the equipment owner is facilitated through our
