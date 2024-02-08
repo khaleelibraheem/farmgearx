@@ -6,7 +6,7 @@ import Logo from "./ui/logo";
 export default function Footer() {
   return (
     <footer className="bg-gray-100 py-12">
-      <div className="container mx-auto flex flex-wrap justify-between">
+      <div className="container sm:px-20 mx-auto flex flex-wrap justify-between">
         {/* About Us Section */}
         <div className="w-full md:w-1/3 mb-8 md:mb-0">
           <Logo />
