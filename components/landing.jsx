@@ -23,7 +23,7 @@ export default function Landing() {
         <div className="text-center flex flex-column items-center justify-center m-auto">
           <div className="max-w-[800px] mt-20 sm:mt-40 tracking-tighter">
             <h1 className="text-[35px] sm:text-[50px] font-bold mb-[20px] tracking-tighter">
-              Effortless Farming with farmGearX
+              Empowering Farmers Through Smart Equipment Rentals
             </h1>
             <p className="text-[15px] sm:text-[1.1rem] mb-[50px] sm:mb-[30px] tracking-tighter">
               Your one-stop solution for renting top-quality farming equipment.

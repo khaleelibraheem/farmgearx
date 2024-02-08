@@ -1,6 +1,7 @@
 import { links } from "@/lib/data";
 import Link from "next/link";
 import menuIcon from "@/public/menuIcon.svg";
+import Logo from "./ui/logo";
 import {
   Sheet,
   SheetContent,
@@ -15,11 +16,7 @@ export default function Header() {
   return (
     <header className="max-w-[1400px] m-auto px-6">
       <nav className="hidden sm:flex justify-between items-center pt-6">
-        <Link href="#home">
-          <h1 className="text-[32px] font-bold logo tracking-tighter inline">
-            <span className="text-[#28EB3B]">farm</span>GearX
-          </h1>
-        </Link>
+        <Logo />
         <div className="space-x-5 hidden sm:block">
           {links.map((link) => (
             <Link
@@ -42,11 +39,7 @@ export default function Header() {
       </nav>
       <Sheet className="block sm:hidden">
         <div className="flex justify-between items-center sm:hidden">
-          <Link href="#home">
-            <h1 className="text-[32px] font-bold logo tracking-tighter inline">
-              <span className="text-[#28EB3B]">farm</span>GearX
-            </h1>
-          </Link>
+          <Logo />
           <SheetTrigger>
             <Image src={menuIcon} alt="open" />
           </SheetTrigger>
@@ -55,11 +48,7 @@ export default function Header() {
         <SheetContent className="block sm:hidden">
           <SheetHeader>
             <SheetTitle>
-              <Link href="#home">
-                <h1 className="text-[32px] font-bold logo tracking-tighter inline">
-                  <span className="text-[#28EB3B]">farm</span>GearX
-                </h1>
-              </Link>
+              <Logo />
             </SheetTitle>
             <SheetDescription>
               <nav className="flex flex-col space-y-20 items-center text-center sm:hidden">
