@@ -3,9 +3,7 @@ import { Button } from "./button";
 
 export default function ProductCard({ equipment }) {
   return (
-    <div
-      className="max-w-[320px] rounded-md p-4 shadow-xl"
-    >
+    <div className="max-w-[320px] rounded-md p-2 sm:p-4 border sm:border-none sm:shadow-xl">
       <Image
         src={equipment.image}
         alt={equipment.name}

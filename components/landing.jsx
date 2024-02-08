@@ -41,7 +41,7 @@ export default function Landing() {
       </div>
 
       <div className="mt-20">
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+        <h1 className="text-2xl md:text-4xl font-semibold tracking-tight">
           Featured Listings
         </h1>
 
