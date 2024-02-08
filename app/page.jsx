@@ -1,15 +1,11 @@
-import Header from "@/components/header";
-import Landing from "@/components/landing";
-import Footer from "@/components/footer";
+import Home from "@/components/home";
 
-export default function Home() {
+export default function page() {
   return (
     <>
-      <Header />
       <main className="max-w-[1300px] m-auto px-6">
-        <Landing />
+        <Home />
       </main>
-      <Footer />
     </>
   );
 }

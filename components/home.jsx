@@ -5,6 +5,8 @@ import Link from "next/link";
 import ProductCard from "@/components/ui/productCard";
 import { featuredEquipments } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
+import Greenbar from "./ui/greenbar";
+import Testimonials from "./testimonials";
 import {
   Carousel,
   CarouselContent,
@@ -12,8 +14,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import SectionTitle from "./ui/sectionTitle";
 
-export default function Landing() {
+export default function Home() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
@@ -39,11 +42,11 @@ export default function Landing() {
           </div>
         </div>
       </div>
+      
+      {/* Featured Equipments Section */}
 
-      <div className="mt-20">
-        <h1 className="text-2xl md:text-4xl font-semibold tracking-tight">
-          Featured Listings
-        </h1>
+      <div className=" mt-28">
+        <SectionTitle title="Featured Equipments"/>
 
         <Carousel
           opts={{
@@ -69,6 +72,9 @@ export default function Landing() {
           <CarouselNext />
         </Carousel>
       </div>
+
+      {/* Testimonials Section */}
+      <Testimonials />
     </section>
   );
 }
