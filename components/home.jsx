@@ -56,7 +56,7 @@ export default function Home() {
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
-          className="mt-8 mb-10 mx-7"
+          className="mt-14 mb-10 mx-7"
         >
           <CarouselContent>
             {featuredEquipments.map((equipment) => (
