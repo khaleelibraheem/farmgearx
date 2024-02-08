@@ -5,7 +5,6 @@ import Link from "next/link";
 import ProductCard from "@/components/ui/productCard";
 import { featuredEquipments } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
-import Greenbar from "./ui/greenbar";
 import Testimonials from "./testimonials";
 import {
   Carousel,
@@ -15,6 +14,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import SectionTitle from "./ui/sectionTitle";
+import Faqs from "./faqs";
 
 export default function Home() {
   const plugin = React.useRef(
@@ -75,6 +75,9 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <Testimonials />
+
+      {/* Frequently asked questions */}
+      <Faqs />
     </section>
   );
 }
