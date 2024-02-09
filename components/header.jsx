@@ -4,8 +4,9 @@ import menuIcon from "@/public/menuIcon.svg";
 import Logo from "./ui/logo";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
-  SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -37,43 +38,47 @@ export default function Header() {
           </Link>
         </div>
       </nav>
-      <Sheet className="block sm:hidden">
+      <Sheet>
         <div className="flex justify-between items-center sm:hidden">
           <Logo />
-          <SheetTrigger>
+          <SheetTrigger asChild>
             <Image src={menuIcon} alt="open" />
           </SheetTrigger>
         </div>
-
         <SheetContent className="block sm:hidden">
           <SheetHeader>
             <SheetTitle>
-              <Logo />
+              <div>
+                <h1 className="text-[32px] font-bold logo tracking-tighter inline">
+                  <span className="text-[#28EB3B]">Farm</span>GearX
+                </h1>
+              </div>
             </SheetTitle>
-            <SheetDescription>
-              <nav className="flex flex-col space-y-20 items-center text-center sm:hidden">
-                <div className="flex flex-col space-y-5 w-full">
-                  {links.map((link) => (
+          </SheetHeader>
+          <SheetFooter>
+            <nav className="flex flex-col space-y-20 items-center text-center sm:hidden">
+              <div className="flex flex-col space-y-5 w-full">
+                {links.map((link) => (
+                  <SheetClose key={link.hash} asChild>
                     <Link
                       href={link.hash}
                       className="text-[14px] hover:text-[#4CAF50] py-2 transition-all"
-                      key={link.hash}
                     >
                       {link.name}
                     </Link>
-                  ))}
-                </div>
-                <div>
-                  <Link
-                    href="/login"
-                    className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
-                  >
-                    Login/Signup
-                  </Link>
-                </div>
-              </nav>
-            </SheetDescription>
-          </SheetHeader>
+                  </SheetClose>
+                ))}
+              </div>
+              <SheetClose asChild>
+                <Link
+                  href="/login"
+                  className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
+                >
+                  Login/Signup
+                </Link>
+              </SheetClose>
+            </nav>
+          </SheetFooter>
         </SheetContent>
       </Sheet>
     </header>

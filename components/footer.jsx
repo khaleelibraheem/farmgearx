@@ -43,7 +43,7 @@ export default function Footer() {
         </h3>
         <ul className="flex space-x-4">
           {footerIcons.map((icon) => (
-            <li key={icon.href}>
+            <li key={icon.name}>
               <Link href={icon.href}>
                 <Image src={icon.imageUrl} alt={icon.name} width={20} />
               </Link>

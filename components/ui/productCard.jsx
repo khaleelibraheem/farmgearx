@@ -7,8 +7,7 @@ export default function ProductCard({ equipment }) {
       <Image
         src={equipment.image}
         alt={equipment.name}
-        width={300}
-        className="rounded"
+        className="w-[300px] h-[300px] object-cover object-center rounded"
       />
       <h2 className="font-bold text-lg mt-5">{equipment.name}</h2>
       <p className="text-sm text-gray-500">{equipment.description}</p>
