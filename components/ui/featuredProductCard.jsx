@@ -8,7 +8,7 @@ export default function FeaturedProductCard({ equipment }) {
         <Image
           src={equipment.image}
           alt={equipment.name}
-          className="w-[300px] h-[310px] object-cover object-center rounded"
+          className="w-[300px] h-[250px] object-cover object-center rounded"
         />
         <h2 className="text-[12px] md:text-md uppercase font-semibold mt-5 text-gray-600">
           {equipment.name}

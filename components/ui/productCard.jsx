@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProductCard({ equipment }) {
+export default function ProductCard({ equipment, className }) {
   return (
-    <div className="max-w-[320px] rounded-md p-2 sm:p-4 border">
+    <div className={className}>
       <Link href={`/equipments/${equipment.id}`}>
         <Image
           src={equipment.image}
           alt={equipment.name}
-          className="w-[300px] h-[310px] object-cover object-center rounded"
+          className="w-[300px] h-[250px] object-cover object-center rounded"
         />
         <h2 className="text-[12px] md:text-md uppercase font-semibold mt-5 text-gray-600">
           {equipment.name}

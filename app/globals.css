@@ -76,16 +76,6 @@
     @apply bg-background text-foreground;
   }
 }
-
-.logo{
-  font-family: 'League Spartan', sans-serif;
-}
-/* .cover-bg{
-  background-image: url(/public/banner.jpg);
-  background-image: url(../public/banner.jpg);
-  height: 100vh;
-} */
-.cover{
-  height: 100vh;
-  background-image: url(/banner.jpg);
+.logo {
+  font-family: "League Spartan", sans-serif;
 }

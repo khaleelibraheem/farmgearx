@@ -100,7 +100,10 @@ export default async function FeaturedEquipment({ params }) {
                   key={equipment.name}
                   className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
                 >
-                  <ProductCard equipment={equipment} />
+                  <ProductCard
+                    className="max-w-[320px] rounded-md p-2 sm:p-4 border"
+                    equipment={equipment}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>

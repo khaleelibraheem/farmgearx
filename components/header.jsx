@@ -1,3 +1,5 @@
+"use client";
+
 import { links } from "@/lib/data";
 import Link from "next/link";
 import menuIcon from "@/public/menuIcon.svg";
@@ -12,32 +14,41 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="max-w-[1400px] m-auto px-6">
-      <nav className="hidden sm:flex justify-between items-center pt-6">
-        <Logo />
-        <div className="space-x-5 hidden sm:block">
-          {links.map((link) => (
+      <div>
+        <nav className="hidden sm:flex justify-between items-center p-4">
+          <Logo />
+          <div className="space-x-5 hidden sm:block">
+            {links.map((link) => (
+              <Link
+                href={link.hash}
+                className={`text-[14px] hover:text-[#4CAF50] transition-all ${
+                  pathname === `${link.hash}` ? "text-[#4CAF50]" : ""
+                }`}
+                key={link.hash}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+          <div className="hidden sm:block">
             <Link
-              href={link.hash}
-              className="text-[14px] hover:text-[#4CAF50] transition-all"
-              key={link.hash}
+              href="/login"
+              className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
             >
-              {link.name}
+              Login/Signup
             </Link>
-          ))}
-        </div>
-        <div className="hidden sm:block">
-          <Link
-            href="/login"
-            className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
-          >
-            Login/Signup
-          </Link>
-        </div>
-      </nav>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Navigation */}
       <Sheet>
         <div className="flex justify-between items-center sm:hidden">
           <Logo />
