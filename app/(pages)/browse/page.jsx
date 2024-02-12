@@ -35,7 +35,7 @@ export default function Browse() {
 
   return (
     <section className="max-w-[1300px] m-auto px-6">
-      <div className="bg-[url(/browse_bg.jpg)] bg-center bg-no-repeat bg-cover rounded-lg mt-3 h-[250px] sm:h-[300px] text-white grid place-content-center">
+      <div className="bg-[url(/browse_bg.jpg)] bg-center bg-no-repeat bg-cover rounded-lg mt-3 h-[150px] sm:h-[300px] text-white grid place-content-center">
         <Input
           className="bg-white text-black w-[300px] sm:w-[400px] rounded-md tracking-tight"
           placeholder="Search Equipments"
