@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ProductCard from "@/components/ui/productCard";
+import Breadcrum from "@/components/ui/breadcrum";
 
 async function getEquipment(id) {
   const equipment = equipments.find((equipment) => id == equipment.id);
@@ -24,7 +25,10 @@ export default async function Equipment({ params }) {
   return (
     <div>
       <div className="container mx-auto mt-8">
-        <div className="flex flex-wrap md:flex-nowrap gap-10 pb-16 lg:px-20">
+        <div className="lg:px-20">
+          <Breadcrum category="Browse" equipment={details} />
+        </div>
+        <div className="mt-8 flex flex-wrap md:flex-nowrap gap-10 pb-16 lg:px-20">
           <div className="md:w-[60%]">
             <Image
               src={details.image}
