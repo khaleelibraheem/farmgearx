@@ -1,5 +1,5 @@
 import SectionTitle from "@/components/ui/sectionTitle";
-import { equipments, featuredEquipments } from "@/lib/data";
+import { equipments } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -12,14 +12,14 @@ import {
 import ProductCard from "@/components/ui/productCard";
 
 async function getEquipment(id) {
-  const equipment = featuredEquipments.find((equipment) => id == equipment.id);
+  const equipment = equipments.find((equipment) => id == equipment.id);
 
   return {
     details: equipment || null,
   };
 }
 
-export default async function FeaturedEquipment({ params }) {
+export default async function Equipment({ params }) {
   const { details } = await getEquipment(params.id);
   return (
     <div>
@@ -88,7 +88,7 @@ export default async function FeaturedEquipment({ params }) {
               align: "start",
               loop: true,
             }}
-            className="mt-14 mb-10 mx-7"
+            className="mt-14 mb-10 mx-7 grid place-content-center"
           >
             <CarouselContent>
               {equipments.map((equipment) => (

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProductCard({ equipment }) {
+export default function FeaturedProductCard({ equipment }) {
   return (
     <div className="max-w-[320px] rounded-md p-2 sm:p-4 border">
-      <Link href={`/equipments/${equipment.id}`}>
+      <Link href={`/featured/${equipment.id}`}>
         <Image
           src={equipment.image}
           alt={equipment.name}

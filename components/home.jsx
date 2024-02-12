@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import Link from "next/link";
-import ProductCard from "@/components/ui/productCard";
 import { featuredEquipments } from "@/lib/data";
 import Autoplay from "embla-carousel-autoplay";
 import Testimonials from "./testimonials";
@@ -15,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import SectionTitle from "./ui/sectionTitle";
 import Faqs from "./faqs";
+import FeaturedProductCard from "./ui/featuredProductCard";
 
 export default function Home() {
   const plugin = React.useRef(
@@ -42,11 +42,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+
       {/* Featured Equipments Section */}
 
       <div className=" mt-28">
-        <SectionTitle title="Featured Equipments"/>
+        <SectionTitle title="Featured Equipments" />
 
         <Carousel
           opts={{
@@ -64,7 +64,7 @@ export default function Home() {
                 key={equipment.name}
                 className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
-                <ProductCard equipment={equipment} />
+                <FeaturedProductCard equipment={equipment} />
               </CarouselItem>
             ))}
           </CarouselContent>
