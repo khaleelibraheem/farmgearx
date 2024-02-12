@@ -13,9 +13,7 @@ export default function ProductCard({ equipment }) {
         <h2 className="text-[12px] md:text-md uppercase font-semibold mt-5 text-gray-600">
           {equipment.name}
         </h2>
-        <h2 className="text-3xl md:text-lg font-bold tracking-tight">
-          {equipment.model}
-        </h2>
+        <h2 className="text-lg font-bold tracking-tight">{equipment.model}</h2>
         <h3 className="mt-1 text-gray-500 text-sm tracking-tight">
           Starting at
         </h3>
