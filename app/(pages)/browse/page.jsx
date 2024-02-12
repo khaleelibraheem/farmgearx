@@ -43,7 +43,7 @@ export default function Browse() {
           onChange={onTyping}
         />
       </div>
-      <div className="mt-20 flex justify-between flex-col sm:flex-row gap-5">
+      <div className="mt-10 sm:mt-20 flex justify-between flex-col sm:flex-row gap-5">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
           {inputValue.length == 0
             ? "All Equipments"
