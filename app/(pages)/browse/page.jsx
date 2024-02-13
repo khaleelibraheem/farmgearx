@@ -54,9 +54,8 @@ export default function Browse() {
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="light">Sort by Price</SelectItem>
-            <SelectItem value="dark">Sort by Name</SelectItem>
-            <SelectItem value="system">Sort by Rating</SelectItem>
+            <SelectItem value="price">Sort by Price</SelectItem>
+            <SelectItem value="name">Sort by Name</SelectItem>
           </SelectContent>
         </Select>
       </div>
