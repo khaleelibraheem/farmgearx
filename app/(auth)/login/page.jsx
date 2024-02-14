@@ -16,9 +16,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-
-import background from "@/public/signup_pic.jpg";
-import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/components/ui/logo";
 
@@ -47,18 +44,12 @@ export default function Login() {
     router.push("/");
   }
   return (
-    <section className="h-screen px-10 md:p-0">
-      <div className="flex md:border max-w-[850px] mx-auto rounded-sm mt-10">
-        <Image
-          src={background}
-          priority
-          alt="bg"
-          className="hidden md:block w-[320px] object-cover"
-        />
-        <div className="w-full flex flex-col items-center">
-          <div className="flex flex-col items-center mt-7">
+    <section className="h-screen sm:bg-gray-100 sm:pt-10">
+      <div className="flex max-w-[450px] bg-white mx-auto rounded-md shadow-sm">
+        <div className="w-full flex flex-col items-center px-10">
+          <div className="flex flex-col items-center mt-6">
             <Logo />
-            <h2 className="text-[26px] mt-8 sm:px-20 font-bold text-center tracking-tight">
+            <h2 className="text-[26px] mt-2 sm:mt-4 font-bold text-center tracking-tight">
               {" "}
               Your Trusted Farming Equipment Rental Platform.
             </h2>
@@ -75,7 +66,7 @@ export default function Login() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="w-full sm:w-2/3 space-y-6"
+              className="w-full space-y-4"
             >
               <FormField
                 control={form.control}
@@ -83,7 +74,11 @@ export default function Login() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Your email address" {...field} />
+                      <Input
+                        placeholder="Your email address"
+                        {...field}
+                        className="rounded-md"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -100,6 +95,7 @@ export default function Login() {
                         type="password"
                         placeholder="Password"
                         {...field}
+                        className="rounded-md"
                       />
                     </FormControl>
                     <FormMessage />
@@ -108,14 +104,14 @@ export default function Login() {
               />
 
               <Button
-                className="w-full bg-[#4CAF50] hover:bg-[#45a049] px-3 py-6 rounded-none"
+                className="w-full bg-[#4CAF50] hover:bg-[#45a049] px-3 py-6 rounded-md"
                 type="submit"
               >
                 Log in
               </Button>
             </form>
           </Form>
-          <div className="flex justify-center mt-4 mb-16">
+          <div className="flex justify-center mt-4 sm:mb-10">
             <p className="text-sm">
               Or continue with{" "}
               <Link className="text-blue-600" href="#">
