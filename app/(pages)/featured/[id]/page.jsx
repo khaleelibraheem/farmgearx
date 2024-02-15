@@ -97,7 +97,7 @@ export default async function FeaturedEquipment({ params }) {
             <CarouselContent>
               {equipments.map((equipment) => (
                 <CarouselItem
-                  key={equipment.name}
+                  key={equipment.id}
                   className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
                 >
                   <ProductCard

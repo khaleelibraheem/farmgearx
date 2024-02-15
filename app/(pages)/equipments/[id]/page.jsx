@@ -33,7 +33,7 @@ export default async function Equipment({ params }) {
             <Image
               src={details.image}
               alt={details.name}
-              className="h-[400px] md:h-[570px] object-cover rounded-md"
+              className="h-[320px] sm:h-[450px] md:h-[570px] object-fill rounded-md"
             />
           </div>
 
@@ -97,7 +97,7 @@ export default async function Equipment({ params }) {
             <CarouselContent>
               {equipments.map((equipment) => (
                 <CarouselItem
-                  key={equipment.name}
+                  key={equipment.id}
                   className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
                 >
                   <ProductCard equipment={equipment} />
