@@ -4,14 +4,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useRouter } from "next/navigation";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -20,32 +18,48 @@ import Link from "next/link";
 import Logo from "@/components/ui/logo";
 
 const FormSchema = z.object({
+  firstname: z.string().min(2, {
+    message: "Firstname must be at least 2 characters.",
+  }),
+  lastname: z.string().min(2, {
+    message: "Lastname must be at least 2 characters.",
+  }),
   email: z.string().email(),
+  phone: z
+    .string()
+    .min(10, {
+      message: "Phone number must be at least 10 characters",
+    })
+    .max(10, {
+      message: "Phone number must be 10 characters",
+    }),
   password: z
     .string()
     .min(8, { message: "Password must be at least 8 characters." }),
 });
 
-export default function Login() {
+export default function Signup() {
   const router = useRouter();
-
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      firstname: "",
+      lastname: "",
       email: "",
+      phone: "",
       password: "",
     },
   });
 
   function onSubmit() {
     toast({
-      description: "Login Successful😀.",
+      description: "Sign up Successful😀.",
     });
     router.push("/");
   }
   return (
-    <section className="h-screen sm:bg-gray-100 sm:pt-10">
-      <div className="flex max-w-[450px] bg-white mx-auto rounded-md shadow-sm">
+    <section className="h-screen sm:pt-10">
+      <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-xl">
         <div className="w-full flex flex-col items-center px-10">
           <div className="flex flex-col items-center mt-6">
             <Logo />
@@ -54,12 +68,12 @@ export default function Login() {
               Your Trusted Farming Equipment Rental Platform.
             </h2>
             <div className="flex items-center gap-1 mt-3 mb-7">
-              <p>Don&apos;t have an account?</p>
+              <p>Already signed up?</p>
               <Link
-                href="/signup"
+                href="/account/login"
                 className="text-blue-600 tracking-tighter text-sm"
               >
-                Sign up
+                Log in
               </Link>
             </div>
           </div>
@@ -68,6 +82,40 @@ export default function Login() {
               onSubmit={form.handleSubmit(onSubmit)}
               className="w-full space-y-4"
             >
+              <div className="flex gap-3">
+                <FormField
+                  control={form.control}
+                  name="firstname"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          placeholder="Firstname"
+                          {...field}
+                          className="rounded-md"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="lastname"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input
+                          placeholder="Lastname"
+                          {...field}
+                          className="rounded-md"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               <FormField
                 control={form.control}
                 name="email"
@@ -84,7 +132,23 @@ export default function Login() {
                   </FormItem>
                 )}
               />
-
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        placeholder="Phone number"
+                        type="number"
+                        {...field}
+                        className="rounded-md"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="password"
@@ -107,7 +171,7 @@ export default function Login() {
                 className="w-full bg-[#4CAF50] hover:bg-[#45a049] px-3 py-6 rounded-md"
                 type="submit"
               >
-                Log in
+                Sign up
               </Button>
             </form>
           </Form>

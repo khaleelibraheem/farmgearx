@@ -39,7 +39,7 @@ export default function Header() {
           </div>
           <div className="hidden sm:block">
             <Link
-              href="/login"
+              href="/account/login"
               className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
             >
               Login/Signup
@@ -82,7 +82,7 @@ export default function Header() {
               </div>
               <SheetClose asChild>
                 <Link
-                  href="/login"
+                  href="/account/login"
                   className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
                 >
                   Login/Signup
