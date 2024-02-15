@@ -74,7 +74,8 @@ export default async function Equipment({ params }) {
 
             <div className="mt-8">
               <Link
-                href="/browse"
+                href="https://buy.stripe.com/test_9AQ5mkerV0GEfm06oo"
+                target="_blank"
                 className="inline-block py-[8px] px-[15px] tracking-tight bg-[#4CAF50] text-white rounded-[5px] hover:bg-[#45a049] transition-colors"
               >
                 Book Now
