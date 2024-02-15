@@ -17,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
-import Logo from "@/components/ui/logo";
 
 const FormSchema = z.object({
   email: z.string().email(),
@@ -48,7 +47,9 @@ export default function Login() {
       <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-xl">
         <div className="w-full flex flex-col items-center px-10">
           <div className="flex flex-col items-center mt-6">
-            <Logo />
+            <h1 className="text-[32px] font-bold logo tracking-tighter inline">
+              <span className="text-[#28EB3B]">Farm</span>GearX
+            </h1>
             <h2 className="text-[26px] mt-2 sm:mt-4 font-bold text-center tracking-tight">
               {" "}
               Your Trusted Farming Equipment Rental Platform.
