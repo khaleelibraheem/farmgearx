@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import SectionTitle from "@/components/ui/sectionTitle";
 import { equipments } from "@/lib/data";
 import Image from "next/image";
@@ -11,6 +14,7 @@ import {
 } from "@/components/ui/carousel";
 import ProductCard from "@/components/ui/productCard";
 import Breadcrum from "@/components/ui/breadcrum";
+import ProductDetailsSkeleton from "../skeleton";
 
 async function getEquipment(id) {
   const equipment = equipments.find((equipment) => id == equipment.id);
@@ -20,8 +24,26 @@ async function getEquipment(id) {
   };
 }
 
-export default async function Equipment({ params }) {
-  const { details } = await getEquipment(params.id);
+export default function Equipment({ params }) {
+  const [loading, setLoading] = useState(true);
+  const [details, setDetails] = useState(null);
+
+  useEffect(() => {
+    const loadEquipment = async () => {
+      // Simulate a loading delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const equipmentDetails = await getEquipment(params.id);
+      setDetails(equipmentDetails.details);
+      setLoading(false);
+    };
+
+    loadEquipment();
+  }, [params.id]);
+
+  if (loading) {
+    return <ProductDetailsSkeleton />;
+  }
+
   return (
     <div>
       <div className="container mx-auto mt-8">

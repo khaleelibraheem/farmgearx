@@ -18,7 +18,7 @@ export default function ProductCard({ equipment, className }) {
           Starting at
         </h3>
         <h3 className="mt-1 font-semibold tracking-tight text-xl">
-          {equipment.price}/day
+          ₹{equipment.price}/day
         </h3>
       </Link>
     </div>
