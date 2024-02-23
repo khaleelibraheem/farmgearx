@@ -1,6 +1,6 @@
 "use client";
 
-import { links } from "@/lib/data";
+import { navItems } from "@/lib/data";
 import Link from "next/link";
 import menuIcon from "@/public/menuIcon.svg";
 import Logo from "./ui/logo";
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { FloatingNav } from "./ui/floating-navbar";
 
 export default function Header() {
   const pathname = usePathname();
@@ -25,15 +26,15 @@ export default function Header() {
         <nav className="hidden sm:flex justify-between items-center p-4">
           <Logo />
           <div className="space-x-5 hidden sm:block">
-            {links.map((link) => (
+            {navItems.map((navItem) => (
               <Link
-                href={link.hash}
+                href={navItem.link}
                 className={`text-[14px] hover:text-[#4CAF50] transition-all ${
-                  pathname === `${link.hash}` ? "text-[#4CAF50]" : ""
+                  pathname === `${navItem.hash}` ? "text-[#4CAF50]" : ""
                 }`}
-                key={link.hash}
+                key={navItem.link}
               >
-                {link.name}
+                {navItem.name}
               </Link>
             ))}
           </div>
@@ -46,6 +47,7 @@ export default function Header() {
             </Link>
           </div>
         </nav>
+        <FloatingNav navItems={navItems} />
       </div>
 
       {/* Mobile Navigation */}
@@ -69,13 +71,13 @@ export default function Header() {
           <SheetFooter>
             <nav className="flex flex-col space-y-20 items-center text-center sm:hidden">
               <div className="flex flex-col space-y-5 w-full">
-                {links.map((link) => (
-                  <SheetClose key={link.hash} asChild>
+                {navItems.map((navItem) => (
+                  <SheetClose key={navItem.name} asChild>
                     <Link
-                      href={link.hash}
+                      href={navItem.link}
                       className="text-[14px] hover:text-[#4CAF50] py-2 transition-all"
                     >
-                      {link.name}
+                      {navItem.name}
                     </Link>
                   </SheetClose>
                 ))}
