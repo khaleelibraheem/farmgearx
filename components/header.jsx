@@ -30,7 +30,7 @@ export default function Header() {
               <Link
                 href={navItem.link}
                 className={`text-[14px] hover:text-[#4CAF50] transition-all ${
-                  pathname === `${navItem.hash}` ? "text-[#4CAF50]" : ""
+                  pathname === `${navItem.link}` ? "text-[#4CAF50]" : ""
                 }`}
                 key={navItem.link}
               >
