@@ -1,8 +1,10 @@
 import { Inter } from "next/font/google";
-import "../globals.css";
+import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import AuthContextProvider from "@/context/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "farmGearX",
@@ -13,9 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <AuthContextProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Toaster />
+        </AuthContextProvider>
       </body>
     </html>
   );

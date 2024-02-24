@@ -15,6 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 const FormSchema = z.object({
   firstname: z.string().min(2, {
@@ -39,6 +41,7 @@ const FormSchema = z.object({
 
 export default function Signup() {
   const router = useRouter();
+  const { setIsLoggedIn } = useContext(AuthContext);
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -50,6 +53,7 @@ export default function Signup() {
     },
   });
 
+  // setIsLoggedIn(true);
   function onSubmit() {
     toast({
       description: "Sign up Successful😀.",
@@ -61,15 +65,15 @@ export default function Signup() {
       <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-xl">
         <div className="w-full flex flex-col items-center px-10">
           <div className="flex flex-col items-center mt-6">
-            <h1 className="text-[32px] font-bold logo tracking-tighter inline">
-              <span className="text-[#28EB3B]">Farm</span>GearX
+            <h1 className="text-[32px] font-semibold logo tracking-tighter inline">
+              Signup
             </h1>
-            <h2 className="text-[26px] mt-2 sm:mt-4 font-bold text-center tracking-tight">
+            {/* <h2 className="text-[26px] mt-2 sm:mt-4 font-bold text-center tracking-tight">
               {" "}
               Your Trusted Farming Equipment Rental Platform.
-            </h2>
-            <div className="flex items-center gap-1 mt-3 mb-7">
-              <p>Already signed up?</p>
+            </h2> */}
+            <div className="flex items-center gap-1 mt-2 mb-7">
+              <p className="text-sm tracking-tight">Already signed up?</p>
               <Link
                 href="/account/login"
                 className="text-blue-600 tracking-tighter text-sm"

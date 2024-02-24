@@ -9,8 +9,9 @@ import {
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CircleUserIcon } from "lucide-react";
 
-export const FloatingNav = ({ navItems, className }) => {
+export const FloatingNav = ({ navItems, className, isLoggedIn }) => {
   const pathname = usePathname();
   const { scrollYProgress } = useScroll();
 
@@ -66,13 +67,23 @@ export const FloatingNav = ({ navItems, className }) => {
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <Link
-          href="/account/login"
-          className="bg-red-500 border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white dark:text-white px-4 py-2 rounded-full"
-        >
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px h-px" />
-        </Link>
+
+        {!isLoggedIn ? (
+          <Link
+            href="/account/login"
+            className="bg-red-500 border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-white dark:text-white px-4 py-2 rounded-full"
+          >
+            <span>Login</span>
+            <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px h-px" />
+          </Link>
+        ) : (
+          <>
+            <div className="p-2 block sm:hidden">
+              <CircleUserIcon />
+            </div>
+            <div className="p-2 hidden sm:block text-[14px]">Profile</div>
+          </>
+        )}
       </motion.div>
     </AnimatePresence>
   );

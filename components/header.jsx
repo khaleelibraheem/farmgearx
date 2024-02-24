@@ -16,9 +16,14 @@ import {
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FloatingNav } from "./ui/floating-navbar";
+import { CircleUserIcon } from "lucide-react";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 export default function Header() {
   const pathname = usePathname();
+
+  const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <header className="max-w-[1400px] m-auto px-6">
@@ -39,15 +44,22 @@ export default function Header() {
             ))}
           </div>
           <div className="hidden sm:block">
-            <Link
-              href="/account/login"
-              className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
-            >
-              Login/Signup
-            </Link>
+            {!isLoggedIn ? (
+              <Link
+                href="/account/login"
+                className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
+              >
+                Login/Signup
+              </Link>
+            ) : (
+              <div className="flex space-x-2 items-center">
+                <p>Profile</p>
+                <CircleUserIcon size={27} />
+              </div>
+            )}
           </div>
         </nav>
-        <FloatingNav navItems={navItems} />
+        <FloatingNav navItems={navItems} isLoggedIn={isLoggedIn} />
       </div>
 
       {/* Mobile Navigation */}
@@ -69,7 +81,7 @@ export default function Header() {
             </SheetTitle>
           </SheetHeader>
           <SheetFooter>
-            <nav className="flex flex-col space-y-20 items-center text-center sm:hidden">
+            <nav className="flex flex-col space-y-10 items-center text-center sm:hidden">
               <div className="flex flex-col space-y-5 w-full">
                 {navItems.map((navItem) => (
                   <SheetClose key={navItem.name} asChild>
@@ -83,12 +95,19 @@ export default function Header() {
                 ))}
               </div>
               <SheetClose asChild>
-                <Link
-                  href="/account/login"
-                  className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
-                >
-                  Login/Signup
-                </Link>
+                {!isLoggedIn ? (
+                  <Link
+                    href="/account/login"
+                    className="bg-red-500 p-3 text-white font-bold rounded-md hover:bg-red-600 transition-all"
+                  >
+                    Login/Signup
+                  </Link>
+                ) : (
+                  <div className="flex space-x-2 items-center">
+                    <p>Profile</p>
+                    <CircleUserIcon />
+                  </div>
+                )}
               </SheetClose>
             </nav>
           </SheetFooter>
