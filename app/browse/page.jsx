@@ -121,7 +121,7 @@ export default function Browse() {
             ) : (
               currentItems.map((equipment) => (
                 <ProductCard
-                  className="max-w-[300px] rounded-md p-2 sm:p-4 border sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                  className="max-w-[300px] rounded-md p-2 sm:p-4 border sm:basis-1/2 md:basis-[31%] lg:basis-1/4"
                   key={equipment.id}
                   equipment={equipment}
                 />

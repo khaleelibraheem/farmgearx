@@ -53,8 +53,8 @@ export default function Signup() {
     },
   });
 
-  // setIsLoggedIn(true);
   function onSubmit() {
+    setIsLoggedIn(true);
     toast({
       description: "Sign up Successful😀.",
     });
@@ -62,7 +62,7 @@ export default function Signup() {
   }
   return (
     <section className="h-screen sm:pt-10">
-      <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-xl">
+      <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
         <div className="w-full flex flex-col items-center px-10">
           <div className="flex flex-col items-center mt-6">
             <h1 className="text-[32px] font-semibold logo tracking-tighter inline">

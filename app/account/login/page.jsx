@@ -29,7 +29,7 @@ const FormSchema = z.object({
 export default function Login() {
   const router = useRouter();
 
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   const form = useForm({
     resolver: zodResolver(FormSchema),
@@ -39,17 +39,17 @@ export default function Login() {
     },
   });
 
-  function onSubmit() {
-    // setIsLoggedIn(true);
+  function onSubmit(values) {
+    setIsLoggedIn(true);
     toast({
       description: "Login Successful😀.",
     });
-    isLoggedIn && router.push("/");
+    router.push("/");
   }
 
   return (
     <section className="sm:pt-10 mb-36">
-      <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-xl">
+      <div className="flex max-w-[450px] bg-white mx-auto rounded-md sm:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
         <div className="w-full flex flex-col items-center px-10">
           <div className="flex flex-col items-center mt-3">
             <h1 className="text-[32px] font-semibold logo tracking-tighter inline">
